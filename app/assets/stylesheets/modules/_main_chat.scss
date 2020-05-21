@@ -11,7 +11,7 @@
   border-bottom: 1px solid #eeeeee;
   overflow: scroll;
   &__left {
-    padding-top: 35px; 
+    padding-top: 35px;
   }
   &__left--name {
         color: #333333;
@@ -39,7 +39,7 @@
   text-decoration: none;
   border: solid 1px #38aef0;
   line-height: 40px;
-  
+
 
 }
 .message__list {
@@ -64,7 +64,7 @@
     font-size: 12px;
     margin-left: 10px;
   }
-  
+
   &__text {
     font-size: 14px;
     color: #434A54;
@@ -81,7 +81,7 @@
   form {
   display: flex;
   .input-box {
-    display: flex;	
+    display: flex;
     width: 100%;
     position: relative;
     &__text {
@@ -110,7 +110,7 @@
  display: flex;
  position: relative;
 }
-.submit-btn {	    
+.submit-btn {
   width: 100px;
   height: 50px;
   padding: 0 30 px;

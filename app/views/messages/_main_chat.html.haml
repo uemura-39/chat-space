@@ -17,8 +17,13 @@
     .message__list__text
       メッセージ
       
-  .message__form
+  .form
     %form.new_message
-    %input.message__form--text{placeholder: "type a message", type: "text"}
-    %input.submit-btn{name: "commit", type: "submit", value: "Send"}
+      .input-box
+        %input{type: "text",class: "input-box__text",placeholder: "type a message"}
+        %label{class: "input-box__image"}
+          = icon('fas', 'image')
+          %input{type: "file", class: "input-box__image--file"}
+      %input{type: "submit", class: "submit-btn",value: "send"}
+
 

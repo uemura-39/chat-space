@@ -1,0 +1,24 @@
+.main-chat
+  .header
+    .header__left
+      .header__left--name
+        グループ名
+      .header__left--member
+        メンバー名
+    .header__right
+      = link_to 'Edit', '#',class: "edit"
+
+  .message__list
+    .message__list__post
+      .message__list__post--name
+        masa
+      .message__list__post--time
+        2020/05/20(Wed) 20:09:03
+    .message__list__text
+      メッセージ
+      
+  .message__form
+    %form.new_message
+    %input.message__form--text{placeholder: "type a message", type: "text"}
+    %input.submit-btn{name: "commit", type: "submit", value: "Send"}
+

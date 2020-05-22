@@ -5,15 +5,17 @@
       .top__items__name
         = current_user.name
       .top__items__icons
-        =link_to "##" do
+        =link_to new_group_path do
           =icon('far','edit', class: "icons--btn")
 
         =link_to edit_user_path(current_user) do
           =icon('fas','cog', class: "icons--btn" )
 
   .group__list
-    .group
-      .group__name
-        グループ名
-      .group__text
-        メッセージ
+    - current_user.groups.each do |group|
+      .group
+        = link_to '#' do
+          .group__name
+            = group.name
+          .group__text
+            メッセージ

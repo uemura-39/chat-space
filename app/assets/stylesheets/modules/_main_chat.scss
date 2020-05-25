@@ -108,9 +108,12 @@
     }
   }
 }
+.image {
+  width: 200px;
+  height: 200px;
+}
 
-
-.new__message {
+.form__mask {
  display: flex;
  position: relative;
 }

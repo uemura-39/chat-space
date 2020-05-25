@@ -2,11 +2,16 @@
   .header
     .header__left
       .header__left--name
-        グループ名
+        =@group.name
       .header__left--member
-        メンバー名
+        .ul
+          .list
+          Member:
+          .list
+          *-@group.group_users.each do |group_user|
+           
     .header__right
-      = link_to 'Edit', '#',class: "edit"
+      = link_to 'Edit', edit_group_path(@group.id),class: "edit"
 
   .message__list
     = render @messages

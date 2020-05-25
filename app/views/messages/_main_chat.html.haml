@@ -2,26 +2,26 @@
   .header
     .header__left
       .header__left--name
-        グループ名
+        =@group.name
       .header__left--member
-        メンバー名
+        .ul
+          .list
+          Member:
+          .list
+          *-@group.group_users.each do |group_user|
+           
     .header__right
-      = link_to 'Edit', '#',class: "edit"
+      = link_to 'Edit', edit_group_path(@group.id),class: "edit"
 
   .message__list
-    .message__list__post
-      .message__list__post--name
-        masa
-      .message__list__post--time
-        2020/05/20(Wed) 20:09:03
-    .message__list__text
-      メッセージ
+    = render @messages
+    
 
   .form
-    %form.new_message
-      .input-box
-        %input{type: "text",class: "input-box__text",placeholder: "type a message"}
-        %label{class: "input-box__image"}
-          = icon('fas', 'image')
-          %input{type: "file", class: "input-box__image--file"}
-      %input{type: "submit", class: "submit-btn",value: "send"}
+    = form_for [@group, @message] do |f|
+      = f.text_field :content, class: 'input-box', placeholder: 'type a message'
+      .form__mask
+        = f.label :image, class: 'input-box__image' do
+          = icon('fas', 'image', class: 'icon')
+          = f.file_field :image, class: 'input-box__image--file'
+      = f.submit 'Send', class: 'submit-btn'

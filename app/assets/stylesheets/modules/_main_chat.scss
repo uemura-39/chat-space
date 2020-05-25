@@ -72,6 +72,10 @@
   }
 }
 
+.img {
+  width: 200px;
+  margin-top: 10px;
+}
 
 .form {
   background-color: #d2d2d2;
@@ -117,7 +121,9 @@
   margin-left: 15px;
   background-color: #38aef0;
   color: #ffffff;
+  cursor: pointer;
   line-height: 50px;
   text-decoration: none;
+ }
 }
-}
+

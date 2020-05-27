@@ -2,40 +2,37 @@ $(function(){
   function buildHTML(message){
    if ( message.image ) {
      var html =
-      `<div class="message">
-         <div class="upper-message">
-           <div class="upper-message__user-name">
-             ${message.user_name}
-           </div>
-           <div class="upper-message__date">
-             ${message.created_at}
-           </div>
-         </div>
-         <div class="lower-message">
-           <p class="lower-message__content">
-             ${message.content}
-           </p>
-         </div>
+     `<div class="message__list__post">
+        <div class="message__list__post--name">
+          ${message.user_name}
+        </div>
+        <div class="message__list__post--time">
+          ${message.created_at}
+        </div>
+      </div>
+      <div class="message__list__text">
+        <p class="lower-message__content">
+          ${message.content}
+        </p>
+      </div>
          <img src=${message.image} >
        </div>`
      return html;
    } else {
      var html =
-      `<div class="message__list">
-         <div class="message__list__post">
-           <div class="message__list--name">
-             ${message.user_name}
-           </div>
-           <div class="message__list--time">
-             ${message.created_at}
-           </div>
-         </div>
-         <div class="message__list__text">
-           <p class="lower-message__content">
-             ${message.content}
-           </p>
-         </div>
-       </div>`
+      `<div class="message__list__post">
+        <div class="message__list__post--name">
+          ${message.user_name}
+        </div>
+        <div class="message__list__post--time">
+          ${message.created_at}
+        </div>
+      </div>
+      <div class="message__list__text">
+        <p class="lower-message__content">
+          ${message.content}
+        </p>
+      </div>`
      return html;
    };
  }
@@ -53,11 +50,11 @@ $('#new_message').on('submit', function(e){
  })
   .done(function(data){
     var html = buildHTML(data);
-    $('.messages').append(html);
+    $('.message__list').append(html);
     $('form')[0].reset();
-    $('.messages').animate({ scrollTop: $('.messages')[0].scrollHeight});
+    $('.message__list').animate({ scrollTop: $('.message__list')[0].scrollHeight});
+    $('.form__submit').prop('disabled', false)
   })
-  $('.form__submit').removeAttr('data-disable-with')
   .fail(function() {
     alert("メッセージ送信に失敗しました");
 });

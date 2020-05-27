@@ -57,7 +57,6 @@ $('#new_message').on('submit', function(e){
   })
   .fail(function() {
     alert("メッセージ送信に失敗しました");
-});
-
+  });
 })
 });

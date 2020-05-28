@@ -37,28 +37,28 @@ $(function(){
    };
  }
 $('#new_message').on('submit', function(e){
- 　e.preventDefault();
- 　var formData = new FormData(this);
- 　var url = $(this).attr('action')
- 　$.ajax({
-   　url: url,
-   　type: "POST",
-   　data: formData,
-   　dataType: 'json',
-   　processData: false,
-   　contentType: false
- 　})
-  　.done(function(data){
-    　var html = buildHTML(data);
-    　$('.message__list').append(html);
-    　$('form')[0].reset();
-    　$('.message__list').animate({ scrollTop: $('.message__list')[0].scrollHeight});
-    　$('.form__submit').prop('disabled', false)
-  　})
-  　.fail(function() {
-    　alert("メッセージ送信に失敗しました");
-  　});
-　})
+  e.preventDefault();
+  var formData = new FormData(this);
+  var url = $(this).attr('action')
+  $.ajax({
+    url: url,
+    type: "POST",
+    data: formData,
+    dataType: 'json',
+    processData: false,
+    contentType: false
+  })
+   .done(function(data){
+     var html = buildHTML(data);
+     $('.message__list').append(html);
+     $('form')[0].reset();
+     $('.message__list').animate({ scrollTop: $('.message__list')[0].scrollHeight});
+     $('.form__submit').prop('disabled', false)
+   })
+   .fail(function() {
+     alert("メッセージ送信に失敗しました");
+   });
+ })
 var reloadMessages = function() {
   var last_message_id = $('.message__list__post:last').data("message-id");
   $.ajax({
@@ -82,6 +82,6 @@ var reloadMessages = function() {
   })
  };
  if (document.location.href.match(/\/groups\/\d+\/messages/)) {
-  setInterval(reloadMessages, 7000);
+  setInterval(reloadMessages, 3000);
  }
 });
